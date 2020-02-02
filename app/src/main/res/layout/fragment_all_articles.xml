@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.aram.paexamtest.vievmodels.AllArticlesViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.AllArticlesFragment">
+
+        <com.aram.paexamtest.ui.CustomSickBar
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            app:progress="0.4"
+            app:strok_width="40dp"
+            app:start_color="@color/colorPrimary"
+            app:end_color="@color/colorAccent"
+            android:visibility="gone"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dataList="@{viewModel.articles}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_layout"
+            />
+
+    </FrameLayout>
+</layout>
